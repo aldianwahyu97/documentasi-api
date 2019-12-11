@@ -1,0 +1,186 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Sample API Documentation",
+        "description": "REST API",
+        "termsOfService": "terms",
+        "contact": {
+            "email": "aldian@inarts.co.id"
+        },
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user": {
+            "get": {
+                "summary": "List of Users",
+                "responses": {
+                    "200": {
+                        "description": "Working"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/detailUser/{id}": {
+            "get": {
+                "summary": "User's Data by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "UserID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Working"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/userAdd": {
+            "post": {
+                "summary": "Create New User",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AddUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Working"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/userUpdate/{id}": {
+            "put": {
+                "summary": "Update User by ID",
+                "operationId": "createUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Working"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        },
+        "/userDelete/{id}": {
+            "delete": {
+                "summary": "Delete User By ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Working"
+                    },
+                    "default": {
+                        "description": "an \"unexpected\" error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "UpdateUser": {
+            "required": [
+                "name",
+                "email",
+                "password",
+                "api_token"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "api_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "AddUser": {
+            "required": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "api_token"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "api_token": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
